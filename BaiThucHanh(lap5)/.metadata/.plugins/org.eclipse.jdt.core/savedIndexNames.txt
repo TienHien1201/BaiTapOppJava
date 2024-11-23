@@ -1,0 +1,5 @@
+INDEX VERSION 1.132+D:\BaiHoc\BaiTap(LaptirnhOPP JAVA).jav\BaiThucHanh(lap5)\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+3647116403.index
+3959137331.index
+39645565.index

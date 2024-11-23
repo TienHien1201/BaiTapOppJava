@@ -1,0 +1,44 @@
+package quanLiNhanSu;
+
+public class ChuyenGiaNuocNgoai extends ConNguoi {
+	private String chuyenNghanh; 
+private String quocTich;
+private String hanViSa;
+
+
+
+
+public ChuyenGiaNuocNgoai(int maNhanVien, String hoVaTen, int namSinh, String goiTinh, String soDienThoai,
+		String daThoiViec, float soGioLamViec, String chuyenNghanh, String quocTich, String hanViSa) {
+	super(maNhanVien, hoVaTen, namSinh, goiTinh, soDienThoai, daThoiViec, soGioLamViec);
+	this.chuyenNghanh = chuyenNghanh;
+	this.quocTich = quocTich;
+	this.hanViSa = hanViSa;
+}
+public String getQuocTich() {
+	return quocTich;
+}
+public void setQuocTich(String quocTich) {
+	this.quocTich = quocTich;
+}
+public String getHanViSa() {
+	return hanViSa;
+}
+public void setHanViSa(String hanViSa) {
+	this.hanViSa = hanViSa;
+}
+
+
+public String getChuyenNghanh() {
+	return chuyenNghanh;
+}
+public void setChuyenNghanh(String chuyenNghanh) {
+	this.chuyenNghanh = chuyenNghanh;
+}
+@Override
+public String toString() {
+	return "|"+maNhanVien+"|" + hoVaTen +"|" + namSinh + "|" + goiTinh + "|"+ soDienThoai + "|" + quocTich+ "|"+hanViSa +"|"+chuyenNghanh +"|"+soGioLamViec+"|"+daThoiViec +"|";
+}
+
+
+}

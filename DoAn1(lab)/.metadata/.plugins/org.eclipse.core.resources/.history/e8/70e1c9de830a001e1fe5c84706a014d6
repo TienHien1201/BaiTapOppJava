@@ -1,0 +1,29 @@
+package quanLiNhanSu;
+
+public class CongNhan extends ConNguoi {
+private String capBac;
+
+public CongNhan(int maNhanVien, String hoVaTen, int namSinh, String goiTinh, String soDienThoai, String daThoiViec,
+		float soGioLamViec, String capBac) {
+	super(maNhanVien, hoVaTen, namSinh, goiTinh, soDienThoai, daThoiViec, soGioLamViec);
+	this.capBac = capBac;
+}
+
+public String getCapBac() {
+	return capBac;
+}
+
+public void setCapBac(String capBac) {
+	this.capBac = capBac;
+}
+
+@Override
+public String toString() {
+	return "|"+maNhanVien+"|" + hoVaTen +"|" + namSinh + "|" + goiTinh + "|"+ soDienThoai + "|" + capBac + "|"+soGioLamViec+"|"+daThoiViec +"|";
+}
+
+
+
+
+
+}

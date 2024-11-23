@@ -1,0 +1,310 @@
+package quanLiNhanSu;
+
+import java.util.Scanner;
+
+public class Test {
+	public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
+	
+/*Tạo 1 danh sách rỗng để chứa để chứa các nhân sự của công ty
+ * thông qua constructor rỗng  đã tạo ở class ChucNangPNS*/	
+	ChucNangPNS danhSach = new ChucNangPNS();
+	
+	short luachon = 0;
+//	Menu
+			while (true) {
+				System.out.println("\t\t+------------------MENU------------------+");
+				System.out.println("\t\t| 1.Them moi nhan su                     |\r\n"
+						+ "\t\t| 2.Liet ke tat ca nhan su trong cong ty |\r\n"
+						+ "\t\t| 3.Tim kiem theo ho va ten              |\r\n"
+						+ "\t\t| 4.Sua thong tin nhan su (do nhap sai)  |\r\n"
+						+ "\t\t| 5.Xoa ho su nhan su da thoi viec       |\r\n"
+						+ "\t\t| 6.Tim kiem theo ma nhan vien           |\r\n"
+						+ "\t\t| 7.Tim kiem theo ten                    |\r\n"                     
+						+ "\t\t| 8.Liet ke theo doi tuong               |\r\n" 
+						+ "\t\t+----------------------------------------+");   
+				System.out.println("\t\tMoi ban lua chon !");
+				luachon = sc.nextShort();
+				sc.nextLine();
+				
+//				Thêm mới nhân sự
+				if (luachon == 1) {
+					while (true) {
+						System.out.println("\t\tBan Muon Nhap thong tin nhan su nao ?");
+					System.out.println("\t\t+----------------------------------------+");
+					System.out.println("\t\t| 1.Nhap thong tin KY SU:                |\r\n"
+							+ "\t\t| 2.Nhap thong tin CONG NHAN:            |\r\n"
+							+ "\t\t| 3.Nhap thong tin NHAN VIEN:            |\r\n"
+							+ "\t\t| 4.Nhap thong tin CHUYEN GIA NUOC NGOAI:|\r\n"
+							+ "\t\t| 5.Nhap thong tin THUC TAP SINH:        |\r\n"
+							+ "\t\t| 6.Nhap thong tin LAO DONG PHO THONG:        |\r\n"
+							+ "\t\t| 7.Nhap thong tin NHAN VIEN PARTIME:        |\r\n"
+							+ "\t\t| 8.Nhap thong tin CAN BO QUAN LI:        |\r\n"
+							+ "\t\t+----------------------------------------+");   
+					short chon = 0;
+					System.out.println("\t\tMoi ban lua chon !");
+					chon = sc.nextShort();
+					sc.nextLine();
+					if (chon == 1) {
+						System.out.println("Moi nhap thong tin nhan su KY SU:");
+						System.out.println("Ma Nhan Vien(2301XXXX): ");
+						String maNhanVien = sc.nextLine();
+						System.out.println("Ho va Ten: " );
+						String hoVaTen = sc.nextLine();
+						System.out.println("Nam sinh: " );
+						int namSinh = sc.nextInt();
+						sc.nextLine();
+						System.out.println("Gioi Tinh: " );
+						String gioiTinh = sc.nextLine();
+						System.out.println("So Dien Thoai: " );
+						String soDienThoai = sc.nextLine();
+						System.out.println("Chuyen nghanh dao tao: ");
+						String chuyenNghanhDaoTao = sc.nextLine();
+						System.out.println("Da thoi viec chua: ");
+						String daThoiViec = sc.nextLine();
+						System.out.println("So Gio Lam: ");
+						Float soGioLamViec = sc.nextFloat();
+						KySu ks = new KySu(maNhanVien, hoVaTen, namSinh, gioiTinh, soDienThoai, chuyenNghanhDaoTao, soGioLamViec, daThoiViec);
+						danhSach.addNhanSu(ks);
+					}
+					else if(chon == 2) {
+						System.out.println("Moi nhap thong tin nhan su CONG NHAN:");
+						System.out.println("Ma Nhan Vien(2302XXXX): ");
+						String maNhanVien = sc.nextLine();
+						System.out.println("Ho va Ten: " );
+						String hoVaTen = sc.nextLine();
+						System.out.println("Nam sinh: " );
+						int namSinh = sc.nextInt();
+						sc.nextLine();
+						System.out.println("Gioi Tinh: " );
+						String gioiTinh = sc.nextLine();
+						System.out.println("So Dien Thoai: " );
+						String soDienThoai = sc.nextLine();
+						System.out.println("Bac Nghe: ");
+						String bacNghe = sc.nextLine();
+						System.out.println("Da thoi viec chua: ");
+						String daThoiViec = sc.nextLine();
+						System.out.println("So Gio Lam: ");
+						Float soGioLamViec = sc.nextFloat();
+					    CongNhan cn = new CongNhan(maNhanVien, hoVaTen, namSinh, gioiTinh, soDienThoai, daThoiViec, soGioLamViec, daThoiViec);
+					    danhSach.addNhanSu(cn);
+						
+					}
+					
+					else if(chon == 3) {
+						System.out.println("Moi nhap thong tin nhan su NHAN VIEN:");
+						System.out.println("Ma Nhan Vien(2303XXXX): ");
+						String maNhanVien = sc.nextLine();
+						System.out.println("Ho va Ten: " );
+						String hoVaTen = sc.nextLine();
+						System.out.println("Nam sinh: " );
+						int namSinh = sc.nextInt();
+						sc.nextLine();
+						System.out.println("Gioi Tinh: " );
+						String gioiTinh = sc.nextLine();
+						System.out.println("So Dien Thoai: " );
+						String soDienThoai = sc.nextLine();
+						System.out.println("Cong Viec Chinh: ");
+						String congViecChinh = sc.nextLine();
+						  System.out.println("Da thoi viec chua: ");
+						    String daThoiViec = sc.nextLine();
+						    System.out.println("So Gio Lam: ");
+							Float soGioLamViec = sc.nextFloat();
+							NhanVien nv = new NhanVien(maNhanVien, hoVaTen, namSinh, gioiTinh, soDienThoai, daThoiViec, soGioLamViec, congViecChinh);
+						danhSach.addNhanSu(nv);
+					}
+					
+					 else if (chon == 4) {
+						 System.out.println("Moi nhap thong tin nhan su CHUYEN GIA NUOC NGOAI:");
+						 System.out.println("Ma Nhan Vien(2304XXXX): ");
+						 String maNhanVien = sc.nextLine();
+							System.out.println("Ho va Ten: " );
+							String hoVaTen = sc.nextLine();
+							System.out.println("Nam sinh: " );
+							int namSinh = sc.nextInt();
+							sc.nextLine();
+							System.out.println("Gioi Tinh: " );
+							String gioiTinh = sc.nextLine();
+							System.out.println("So Dien Thoai: " );
+							String soDienThoai = sc.nextLine();
+							System.out.println("Chuyen nghanh dao tao: ");
+							String chuyenNghanh = sc.nextLine();
+							System.out.println("Quoc Tich: ");
+							String quocTich = sc.nextLine();
+							System.out.println("Ngay Het Han Visa(dd/mm/yy): ");
+							String ngayHetHanVisa = sc.nextLine();
+							System.out.println("Da thoi viec chua: ");
+							String daThoiViec = sc.nextLine();
+							System.out.println("So Gio Lam: ");
+							Float soGioLamViec = sc.nextFloat();
+							ChuyenGiaNuocNgoai cgnn = new ChuyenGiaNuocNgoai(maNhanVien, hoVaTen, namSinh, gioiTinh, soDienThoai, daThoiViec, soGioLamViec, chuyenNghanh, quocTich, ngayHetHanVisa);
+							danhSach.addNhanSu(cgnn);
+					}
+					 else if (chon == 5) {
+						 System.out.println("Moi nhap thong tin nhan su THUC TAP SINH:");
+						 System.out.println("Ma Nhan Vien (2305XXXX): ");
+							String maNhanVien = sc.nextLine();
+							System.out.println("Ho va Ten: " );
+							String hoVaTen = sc.nextLine();
+							System.out.println("Nam sinh: " );
+							int namSinh = sc.nextInt();
+							sc.nextLine();
+							System.out.println("Gioi Tinh: " );
+							String gioiTinh = sc.nextLine();
+							System.out.println("So Dien Thoai: " );
+							String soDienThoai = sc.nextLine();
+							System.out.println("Truong Dang Hoc : ");
+							String daiHoc = sc.nextLine();
+							System.out.println("Chuyen nghanh: ");
+							String chuyenNghanh = sc.nextLine();
+							System.out.println("Da thoi viec chua: ");
+							String daThoiViec = sc.nextLine();
+							System.out.println("So Gio Lam: ");
+							Float soGioLamViec = sc.nextFloat();
+							ThucTapSinh tts = new ThucTapSinh(maNhanVien, hoVaTen, namSinh, gioiTinh, soDienThoai, daThoiViec, soGioLamViec, daiHoc, chuyenNghanh);
+							danhSach.addNhanSu(tts);}
+					 else if (chon == 6) {
+						 System.out.println("Moi nhap thong tin nhan su LAO DONG PHO THONG:");
+						 System.out.println("Ma Nhan Vien(2306XXXX): ");
+							String maNhanVien = sc.nextLine();
+							System.out.println("Ho va Ten: " );
+							String hoVaTen = sc.nextLine();
+							System.out.println("Nam sinh: " );
+							int namSinh = sc.nextInt();
+							sc.nextLine();
+							System.out.println("Gioi Tinh: " );
+							String gioiTinh = sc.nextLine();
+							System.out.println("So Dien Thoai: " );
+							String soDienThoai = sc.nextLine();
+							System.out.println("Bang Cap: ");
+							String bangCap = sc.nextLine();
+							System.out.println("Da thoi viec chua: ");
+							String daThoiViec = sc.nextLine();
+							System.out.println("So Gio Lam: ");
+							Float soGioLamViec = sc.nextFloat();
+							LaoDongPhoThong ldpt = new LaoDongPhoThong(maNhanVien, hoVaTen, namSinh, gioiTinh, soDienThoai, daThoiViec, soGioLamViec, bangCap);
+							danhSach.addNhanSu(ldpt);}
+					
+					 else if (chon == 7) {
+						 System.out.println("Moi nhap thong tin nhan su NHAN VIEN PARTIME:");
+						 System.out.println("Ma Nhan Vien(2307XXXX): ");
+							String maNhanVien = sc.nextLine();
+							System.out.println("Ho va Ten: " );
+							String hoVaTen = sc.nextLine();
+							System.out.println("Nam sinh: " );
+							int namSinh = sc.nextInt();
+							sc.nextLine();
+							System.out.println("Gioi Tinh: " );
+							String gioiTinh = sc.nextLine();
+							System.out.println("So Dien Thoai: " );
+							String soDienThoai = sc.nextLine();
+							System.out.println("Loai Cong Viec: ");
+							String loaiCongViec = sc.nextLine();
+							System.out.println("Da thoi viec chua: ");
+							String daThoiViec = sc.nextLine();
+							System.out.println("So Gio Lam: ");
+							Float soGioLamViec = sc.nextFloat();
+							NhanVienPartTime nvbtg = new NhanVienPartTime(maNhanVien, hoVaTen, namSinh, gioiTinh, soDienThoai, daThoiViec, soGioLamViec, loaiCongViec);
+							danhSach.addNhanSu(nvbtg); 
+							}
+					 else if (chon == 8) {
+						 System.out.println("Moi nhap thong tin nhan su CAN BO QUAN LI");
+						 System.out.println("Ma Nhan Vien (2308XXXX): ");
+							String maNhanVien = sc.nextLine();
+							System.out.println("Ho va Ten: " );
+							String hoVaTen = sc.nextLine();
+							System.out.println("Nam sinh: " );
+							int namSinh = sc.nextInt();
+							sc.nextLine();
+							System.out.println("Gioi Tinh: " );
+							String gioiTinh = sc.nextLine();
+							System.out.println("So Dien Thoai: " );
+							String soDienThoai = sc.nextLine();
+							System.out.println("Nam Kinh Nghiem: ");
+							String namKinhNghiem = sc.nextLine();
+							System.out.println("Da thoi viec chua: ");
+							String daThoiViec = sc.nextLine();
+							System.out.println("So Gio Lam: ");
+							Float soGioLamViec = sc.nextFloat();
+							CanBoQuanLy cbql = new CanBoQuanLy(maNhanVien, hoVaTen, namSinh, gioiTinh, soDienThoai, daThoiViec, namSinh, namKinhNghiem);
+							danhSach.addNhanSu(cbql);
+							}
+					else {
+						break;}}}
+				
+//              Liệt kê all nhân sự theo thứ tự alpha 
+				else if (luachon == 2) {
+					danhSach.listNhanSu();
+				}
+				
+//				Tìm nhân sự theo họ và tên
+				else if (luachon == 3) {
+					System.out.println("Nhap Ho va Ten nhan su can tim: ");
+					String hoVaTen = sc.nextLine();
+					System.out.println("Ket qua tim: ");
+					danhSach.searchNhanSu(hoVaTen);
+				}
+				
+//				Sửa thông tin nhân sự khi nhập sai thông tin
+				else if (luachon == 4) {
+					System.out.println("Nhap Ho va Ten nhan su can Sua: ");
+					String hoVaTen = sc.nextLine();
+					danhSach.suaThongTin(hoVaTen);
+				}
+				
+				//Xóa Nhân Sự đã thôi việc
+				else if (luachon == 5) {
+					danhSach.xoaNhanSuDaThoiViec();
+					System.out.println("Danh sach sau khi xoa nhan su: " );
+					danhSach.listNhanSu();
+				}
+				
+                //Tìm theo mã nhân viên				
+				else if (luachon == 6) {
+					System.out.println("Nhap MA NHAN VIEN can tim: ");
+					int maNhanVien = sc.nextInt();
+					System.out.println("Ket qua tim: ");
+					danhSach.searchMaNhanVien(maNhanVien);
+				}
+				
+				//Tìm theo tên
+				else if (luachon == 7) {
+					System.out.println("Nhap Vao Ten nhan su Muon Tim: ");
+					String Ten = sc.nextLine();
+					System.out.println("Ket Qua tim duoc: ");
+					danhSach.timKiemTheoTen(Ten);
+				}
+				
+				//Liệt kê theo Đối tượng
+				else if (luachon == 8) {
+			
+					while (true) {
+						System.out.println("\t\tBan muon xem danh sach  NHAN SU nao ?");
+						System.out.println("\t\t+----------------------------------------+");
+						System.out.println("\t\t| 2301.Danh Sach thong tin KY SU:                |\r\n"
+								+ "\t\t| 2302.Thong tin CONG NHAN:            |\r\n"
+								+ "\t\t| 2303.Thong tin NHAN VIEN:            |\r\n"
+								+ "\t\t| 2304.Thong tin CHUYEN GIA NUOC NGOAI:|\r\n"
+								+ "\t\t| 2305.Thong tin THUC TAP SINH:        |\r\n"
+								+ "\t\t| 2306.Thong tin LAO DONG PHO THONG:   |\r\n"
+								+ "\t\t| 2307.Thong tin NHAN VIEN PARTIME:    |\r\n"
+								+ "\t\t| 2308.Thong tin CAN BO QUAN LI:       |\r\n"
+								+ "\t\t| 0.Thoat khoi lua chon                |\r\n"
+								+ "\t\t+----------------------------------------+");   
+						System.out.println("\t\tHay Nhap MA NHAN VIEN tuong ung !");
+						Short chon =0;
+						chon = sc.nextShort();
+						if(chon > 0) {
+							String maNhanVien = sc.nextLine();
+							danhSach.lietKeNhanSuTheoMa(maNhanVien);}
+						
+						else {
+							break;
+						}}}
+				else {
+					break;
+				}
+			
+			}		
+	}
+}

@@ -1,0 +1,31 @@
+package quanLiNhanSu;
+
+public class NhanVien extends ConNguoi{
+private String conViecChinh;
+
+
+
+
+
+
+public NhanVien(int maNhanVien, String hoVaTen, int namSinh, String goiTinh, String soDienThoai, String daThoiViec,
+		float soGioLamViec, String conViecChinh) {
+	super(maNhanVien, hoVaTen, namSinh, goiTinh, soDienThoai, daThoiViec, soGioLamViec);
+	this.conViecChinh = conViecChinh;
+}
+
+public String getConViecChinh() {
+	return conViecChinh;
+}
+
+public void setConViecChinh(String conViecChinh) {
+	this.conViecChinh = conViecChinh;
+}
+
+@Override
+public String toString() {
+	 return "|"+maNhanVien+"|" + hoVaTen +"|" + namSinh + "|" + goiTinh + "|"+ soDienThoai + "|" + conViecChinh + "|"+soGioLamViec+"|"+daThoiViec +"|";
+}
+
+
+}

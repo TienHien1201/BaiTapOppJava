@@ -1,0 +1,115 @@
+package quanLiNhanSu;
+
+import java.util.Objects;
+
+public class ConNguoi implements Comparable<ConNguoi> {
+	protected int maNhanVien;
+    protected String hoVaTen;
+    protected int namSinh;
+    protected String goiTinh;
+    protected String soDienThoai;
+    protected String daThoiViec;
+    protected float soGioLamViec;
+
+   
+  
+
+	public ConNguoi(int maNhanVien, String hoVaTen, int namSinh, String goiTinh, String soDienThoai,
+			String daThoiViec, float soGioLamViec) {
+		super();
+		this.maNhanVien = maNhanVien;
+		this.hoVaTen = hoVaTen;
+		this.namSinh = namSinh;
+		this.goiTinh = goiTinh;
+		this.soDienThoai = soDienThoai;
+		this.daThoiViec = daThoiViec;
+		this.soGioLamViec = soGioLamViec;
+	}
+
+	public String getHoVaTen() {
+        return hoVaTen;
+    }
+
+    public void setHoVaTen(String hoVaTen) {
+        this.hoVaTen = hoVaTen;
+    }
+
+    public int getNamSinh() {
+        return namSinh;
+    }
+
+    public void setNamSinh(int namSinh) {
+        this.namSinh = namSinh;
+    }
+
+    public String getGoiTinh() {
+        return goiTinh;
+    }
+
+    public void setGoiTinh(String goiTinh) {
+        this.goiTinh = goiTinh;
+    }
+
+    public String getSoDienThoai() {
+        return soDienThoai;
+    }
+
+    public void setSoDienThoai(String soDienThoai) {
+        this.soDienThoai = soDienThoai;
+    }
+
+
+    public String getDaThoiViec() {
+		return daThoiViec;
+	}
+
+	public void setDaThoiViec(String daThoiViec) {
+		this.daThoiViec = daThoiViec;
+	}
+
+	public int getMaNhanVien() {
+		return maNhanVien;
+	}
+
+	public void setMaNhanVien(int maNhanVien) {
+		this.maNhanVien = maNhanVien;
+	}
+
+	
+	
+	public float getSoGioLamViec() {
+		return soGioLamViec;
+	}
+
+	public void setSoGioLamViec(float soGioLamViec) {
+		this.soGioLamViec = soGioLamViec;
+	}
+
+	@Override
+    public String toString() {
+        return "|" + hoVaTen + "|" + namSinh + "|" + goiTinh + "|"
+                + soDienThoai + "|" + daThoiViec + "|";
+    }
+
+    @Override
+    public int compareTo(ConNguoi o) {
+    	return this.daThoiViec.compareTo(o.daThoiViec);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(daThoiViec);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        ConNguoi other = (ConNguoi) obj;
+        return daThoiViec == other.daThoiViec;
+    }
+}

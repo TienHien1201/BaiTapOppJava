@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="season3.PhuongTienGiaoThong"/>
+    <fullyQualifiedTypeName name="season3.PhuongTienGiaoThongDuongBo"/>
+    <fullyQualifiedTypeName name="season3.PhuongTienXeHoi"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="quanLiNhanVien.NhanSu"/>
+    <fullyQualifiedTypeName name="java.security.DomainCombiner"/>
+    <fullyQualifiedTypeName name="quanLiNhanVien.DanhSachNhanSu"/>
+    <fullyQualifiedTypeName name="quanLiNhanVien.CongNhan"/>
+    <fullyQualifiedTypeName name="quanLiNhanVien.NhanVien"/>
+    <fullyQualifiedTypeName name="seaSon3v2.Animal"/>
+    <fullyQualifiedTypeName name="seaSon3v2.Pig"/>
+    <fullyQualifiedTypeName name="quanLiNhanVien.KySu"/>
+    <fullyQualifiedTypeName name="java.lang.ref.Cleaner"/>
+    <fullyQualifiedTypeName name="quanLiNhanSu.LanhDao"/>
+    <fullyQualifiedTypeName name="quanLiNhanSu.CongNhan"/>
+    <fullyQualifiedTypeName name="quanLiNhanSu.NhanVien"/>
+    <fullyQualifiedTypeName name="java.security.spec.DSAGenParameterSpec"/>
+    <fullyQualifiedTypeName name="quanLiNhanSu.ChuyenGiaNuocNgoai"/>
+    <fullyQualifiedTypeName name="java.util.Objects"/>
+    <fullyQualifiedTypeName name="main.SinhVien"/>
+    <fullyQualifiedTypeName name="java.util.Comparator"/>
+    <fullyQualifiedTypeName name="main.DanhSachSienVien"/>
+    <fullyQualifiedTypeName name="java.lang.Boolean"/>
+    <fullyQualifiedTypeName name="quanLiNhanSu.QuanLyCBNV"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.lang.Comparable"/>
+    <fullyQualifiedTypeName name="quanLiNhanSu.KySu"/>
+    <fullyQualifiedTypeName name="javafx.scene.Group"/>
+    <fullyQualifiedTypeName name="javafx.scene.Scene"/>
+    <fullyQualifiedTypeName name="java.lang.AbstractMethodError"/>
+    <fullyQualifiedTypeName name="javafx.scene.shape.Line"/>
+    <fullyQualifiedTypeName name="java.awt.MultipleGradientPaint.ColorSpaceType"/>
+    <fullyQualifiedTypeName name="javafx.scene.paint.Color"/>
+    <fullyQualifiedTypeName name="java.lang.Void"/>
+    <fullyQualifiedTypeName name="java.lang.Record"/>
+    <fullyQualifiedTypeName name="quanLiNhanSu.ConNguoi"/>
+    <fullyQualifiedTypeName name="java.util.Collections"/>
+    <fullyQualifiedTypeName name="java.util.Iterator"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+</qualifiedTypeNameHistroy>

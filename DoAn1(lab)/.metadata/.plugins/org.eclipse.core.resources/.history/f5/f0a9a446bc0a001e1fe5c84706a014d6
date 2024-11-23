@@ -1,0 +1,303 @@
+package quanLiNhanSu;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Scanner;
+
+public class ChucNangPNS {
+/*ArrayList<ConNguoi> chỉ định rõ rằng nhanSu là một danh sách chứa các đối tượng thuộc lớp ConNguoi*/	
+//	Nơi lưu trữ danh sách nhân sự vào 1 danh sách đã đặt tên là nhanSu
+private ArrayList<ConNguoi>nhanSu;
+
+public ChucNangPNS() {
+	//Tạo 1 Arraylist rỗng để chứa các nhân sự trong công ty
+	this.nhanSu = new ArrayList<ConNguoi>();
+}
+
+public ChucNangPNS(ArrayList<ConNguoi> nhanSu) {
+
+	this.nhanSu = nhanSu;
+}
+
+public ArrayList<ConNguoi> getNhanSu() {
+	return nhanSu;
+}
+
+public void setNhanSu(ArrayList<ConNguoi> nhanSu) {
+	this.nhanSu = nhanSu;
+}
+
+//Add nhân Sự
+public void addNhanSu(ConNguoi cn) {
+	this.nhanSu.add(cn);
+}
+
+//Liệt kê tất cả nhân sự trong công ty
+public void listNhanSu() {
+	
+		if (nhanSu.size() == 0) {
+			System.out.println("Khong ton tai bat ki nao trong danh sach! ");
+		}else {
+			/*Tạo 1 danh sách mới có tên sortedNhanSu để lưu (các nhân sự 
+									trong danh sách nhanSu đã tạo) sau khi sắp xếp*/	
+								    List<ConNguoi> sortedNhanSu = new ArrayList<>(nhanSu);
+									/*Sử dụng phương thức Collections.sort sắp xếp danh sách sortedNhanSu 
+									 *theo 1 bộ so sánh tùy chỉnh Comparator Truyền vào new Comparator<ConNguoi>()
+									 *để tạo một đối tượng Comparator */	
+								    Collections.sort(sortedNhanSu, new Comparator<ConNguoi>() {
+								        @Override
+									/*compare được ghi đè để xác định cách so sánh hai đối tượng 
+									 *ConNguoi để sắp xếp. */
+								        public int compare(ConNguoi nguoi1, ConNguoi nguoi2) {
+									//		Lấy họ và tên của hai đối tượng để so sánh
+								            String hoTen1 = nguoi1.getHoVaTen();
+								            String hoTen2 = nguoi2.getHoVaTen();
+								            
+									/*      Tách chuỗi hoTen1 và hoTen2 thành một mảng các từ riêng 
+									 *      biệt bằng cách sử dụng phương thức split với dấu cách
+									 *      làm dấu phân tách. Ví Dụ ["Nguyễn", "Văn", "An"]. Độ dài
+									 *      của mảng này là 3, thể hiện rằng chuỗi ban đầu có 3 từ.*/	
+								            String[] hoTenArray1 = hoTen1.split(" ");
+								            String[] hoTenArray2 = hoTen2.split(" ");
+								            
+									
+									/*      truy cập phần tử cuối cùng trong mảng hoTenArray1, tức là 
+									 *      tên của đối tượng nguoi1.Vì theo Ví dụ ở split độ dài của
+									 *      mảng đã lưu là 3 , 3 - 1 = 2 là phần tử cuối của mảng tức
+									 *      là tên của đối tượng conNguoi 1.và compareTo để so sánh sánh */
+								            int tenComparison = hoTenArray1[hoTenArray1.length - 1].compareToIgnoreCase(hoTenArray2[hoTenArray2.length - 1]);
+									/*      Kiểm tra tên của nguoi1 và nguoi 2 có giống nhau hay không
+									 *      Nếu == 0 thì tên giống nhau thì sẽ bỏ qua việc thực hiện so
+									 *      sánh tên và so sánh họ còn khác 0 thì thực hiện so sánh tên*/
+								            if (tenComparison != 0) {
+								                return tenComparison;
+								            }
+								            
+								            // Nếu tên giống nhau, so sánh họ
+								            int hoComparison = hoTenArray1[0].compareToIgnoreCase(hoTenArray2[0]);
+								            if (hoComparison != 0) {					                
+								            	return hoComparison;
+								            }
+								            
+								            // Nếu họ và tên đều giống nhau, không thay đổi thứ tự
+								            return 0;
+								        }
+								    }); short kySuCount = 1;
+								    short conNhanCount = 1;
+										short nhanVienCount = 1;
+										short chuyenGiaNuocNgoaiCount = 1;
+										 short thucTapSinhCount = 1;
+										 short laoDongPhoThongCount = 1;
+							        	  short nhanVienPartTimeCount = 1;
+							        	  short canBoQuanLiCount = 1;
+						for (ConNguoi conNguoi : sortedNhanSu) {
+					    
+					        if (conNguoi instanceof KySu) {
+					            KySu ks = (KySu) conNguoi;
+					            System.out.println("Thong tin nhan su KY SU thu " + kySuCount + ":");
+					            System.out.println(ks.toString());
+					            kySuCount++;
+					        } 
+					        else if (conNguoi instanceof CongNhan) {					        	
+					            CongNhan cn = (CongNhan) conNguoi;
+					            System.out.println("Thong tin nhan su CONG NHAN thu " + conNhanCount + ":");
+					            System.out.println(cn.toString());
+					            conNhanCount++;
+					            
+					        } else if (conNguoi instanceof NhanVien) {					        
+					            NhanVien nv = (NhanVien) conNguoi;
+					            System.out.println("Thong tin nhan su NHAN VIEN thu " + nhanVienCount + ":");
+					            System.out.println(nv.toString());
+					            nhanVienCount++;
+					        } 
+					        else if (conNguoi instanceof ChuyenGiaNuocNgoai) {
+					            ChuyenGiaNuocNgoai cgnn = (ChuyenGiaNuocNgoai) conNguoi;
+					            System.out.println("Thong tin nhan su CHUYEN GIA NUOC NGOAI thu " + chuyenGiaNuocNgoaiCount + ":");
+					            System.out.println(cgnn.toString());
+					            chuyenGiaNuocNgoaiCount++;
+					            
+					        } else if (conNguoi instanceof ThucTapSinh) { 
+					            ThucTapSinh tts = (ThucTapSinh) conNguoi;
+					            System.out.println("Thong tin nhan su THUC TAP SINH thu " + thucTapSinhCount + ":");
+					            System.out.println(tts.toString());
+					            thucTapSinhCount++; 
+					            
+					         }				        
+					        else if (conNguoi instanceof LaoDongPhoThong) {	 
+					            LaoDongPhoThong ldpt = (LaoDongPhoThong) conNguoi;
+					            System.out.println("Thong tin nhan su LAO DONG PHO THONG thu " + laoDongPhoThongCount + ":");
+					            System.out.println(ldpt.toString());
+					            laoDongPhoThongCount++;   
+					            
+					         }					        
+					        else if (conNguoi instanceof NhanVienPartTime) {
+					            NhanVienPartTime nvpt = (NhanVienPartTime) conNguoi;
+					            System.out.println("Thong tin nhan su THUC TAP SINH thu " + nhanVienPartTimeCount + ":");
+					            System.out.println(nvpt.toString());
+					            nhanVienPartTimeCount++;   
+					            
+					         }					        
+					        else if (conNguoi instanceof CanBoQuanLy) {					        	 
+					            CanBoQuanLy cbql = (CanBoQuanLy) conNguoi;
+					            System.out.println("Thong tin nhan su THUC TAP SINH thu " + canBoQuanLiCount + ":");
+					            System.out.println(cbql.toString());
+					            canBoQuanLiCount++;   }
+					        }}}
+
+
+//Tìm kiếm nhân sự theo họ và tên
+public void searchNhanSu(String hoVaTen) {
+	boolean kt = false;
+	for (ConNguoi conNguoi : nhanSu) {
+		if (conNguoi.getHoVaTen().equalsIgnoreCase(hoVaTen)) {
+			System.out.println(conNguoi);
+			kt = true;
+		}}if (!kt) {
+		System.out.println("Khong tim thay nhan su !");
+	}}
+
+//Sửa Thông tin nhân sự khi nhập sai 
+public void suaThongTin(String hoVaTen) {
+	boolean kt = false;
+	Scanner sc = new Scanner(System.in);
+	for (ConNguoi conNguoi : nhanSu) {
+//		Kiểm tra tên của đối tượng có khớp với nhân sự cần sửa hay không
+		if (conNguoi.getHoVaTen().equals(hoVaTen)) {
+//			Hiện thị thông tin nhân sự cần sửa
+			System.out.println("Thong tin nhan su can sua: " + conNguoi.toString());
+			
+//			Nhập thông tin cần sửa 
+			System.out.println("Nhap thong tin moi can sua: ");
+			System.out.println("Ho va Ten: ");
+			hoVaTen = sc.nextLine();
+			conNguoi.setHoVaTen(hoVaTen);
+			System.out.println("Nam Sinh: ");
+			int namSinh = sc.nextInt();
+			sc.nextLine();
+		    conNguoi.setNamSinh(namSinh);
+		    System.out.println("Gioi Tinh: ");
+		    String gioiTinh = sc.nextLine();
+		    conNguoi.setGoiTinh(gioiTinh);
+		    System.out.println("So dien thoai");
+		    String soDienThoai = sc.nextLine();
+		    conNguoi.setSoDienThoai(soDienThoai);
+		    kt = true;
+		    break;
+		}if (!kt) {
+			System.out.println("Khong tim thay Ten nhan su de sua !");
+		}}}
+
+//Xóa nhân sự 
+public void xoaNhanSuDaThoiViec() {
+	    boolean kt = false;
+	    Scanner sc = new Scanner(System.in);
+	    System.out.println("Ban Muon xoa nhan su nhu the nao ? (da thoi viec): ");
+	    String daThoiViec = sc.nextLine();
+	    
+	    List<ConNguoi> phanTuCanXoa = new ArrayList<>();
+	    for (ConNguoi conNguoi : nhanSu) {
+	        if (conNguoi.getDaThoiViec().equalsIgnoreCase(daThoiViec)) {
+	            phanTuCanXoa.add(conNguoi);
+	            kt = true;
+	        }
+	    } nhanSu.removeAll(phanTuCanXoa);
+	    
+	    if (!kt) {
+	        System.out.println("Khong ton tai nhan su da thoi viec !");
+	    }
+}
+
+//	Tìm Kiếm theo mã nhân viên
+public void searchMaNhanVien(String maNhanVien) {
+	boolean kt = false;
+	for (ConNguoi conNguoi : nhanSu) {
+		if (conNguoi.getMaNhanVien().equals(maNhanVien)) {
+			System.out.println(conNguoi);
+			kt = true;
+		}
+	}if(!kt) {
+		System.out.println("Khong ton tai nhan vien !");
+	}}
+	
+//Tìm Kiếm theo Tên
+public void timKiemTheoTen(String Ten) {
+boolean timThay = false;
+ for (ConNguoi conNguoi : nhanSu) {
+String hoVaTen = conNguoi.getHoVaTen();
+String[] hoVaTenArray = hoVaTen.split(" ");
+String tenNhanSu = hoVaTenArray[hoVaTenArray.length - 1];
+if (tenNhanSu.equalsIgnoreCase(Ten)) {
+	System.out.println(conNguoi.toString());
+	timThay = true;
+}}if (!timThay) {
+	System.out.println("Khong tim thay nhan su nao co ten la: " + Ten);
+}}
+
+//Liệt kê theo đối tượng
+public void lietKeNhanSuTheoMa(String maNhanVien) {
+	
+	short kySuCount = 1;
+    short conNhanCount = 1;
+		short nhanVienCount = 1;
+		short chuyenGiaNuocNgoaiCount = 1;
+		 short thucTapSinhCount = 1;
+		 short laoDongPhoThongCount = 1;
+    	  short nhanVienPartTimeCount = 1;
+    	  short canBoQuanLiCount = 1;
+	
+//	List<ConNguoi> chỉ định rõ rằng NhanSu là một danh sách chứa các đối tượng thuộc lớp ConNguoi.
+//	Lấy danh sách nhân sự từ phương thức getNhanSu() và lưu trữ vào biến NhanSu
+	 List<ConNguoi> NhanSu = getNhanSu();
+	 boolean kt = false;
+	 /* Bắt đầu vòng lặp for-each để duyệt qua từng đối tượng conNguoi trong danh sách NhanSu*/
+    for (ConNguoi conNguoi :NhanSu) {
+    	//Lấy mã nhân viên của đối tượng conNguoi và lưu trữ vào biến maNhanVienConNguoi
+    	 String maNhanVienConNguoi = conNguoi.getMaNhanVien();
+    	 /*Kiểm tra điều kiện: nếu độ dài của maNhanVienConNguoi lớn hơn hoặc bằng 1 và ký tự đầu tiên
+    	  *  của maNhanVienConNguoi có giống với giá trị của maNhanVien không*/
+         if (maNhanVienConNguoi.length() >= 1 && maNhanVienConNguoi.substring(0, 1).equals(maNhanVien)) { 
+    		kt = true;
+    		
+            if (conNguoi instanceof KySu) {
+                System.out.println("Thong tin nhan su Ky Su thu: " + kySuCount );
+                System.out.println(conNguoi.toString());
+                kySuCount++;
+            } else if (conNguoi instanceof CongNhan) {
+                System.out.println("Thong tin nhan su Cong Nhan thu: " + conNhanCount);
+                System.out.println(conNguoi.toString());
+                conNhanCount++;
+            } else if (conNguoi instanceof NhanVien) {
+                System.out.println("Thong tin nhan su Nhan Vien thu: "+ nhanVienCount);
+                System.out.println(conNguoi.toString());
+                nhanVienCount++;
+            } else if (conNguoi instanceof ChuyenGiaNuocNgoai) {
+                System.out.println("Thong tin nhan su Chuyen Gia Nuoc Ngoai thu: " + chuyenGiaNuocNgoaiCount);
+                System.out.println(conNguoi.toString());
+                chuyenGiaNuocNgoaiCount++;
+            } else if (conNguoi instanceof ThucTapSinh) {
+                System.out.println("Thong tin nhan su Thuc Tap Sinh thu: " + thucTapSinhCount++);
+                System.out.println(conNguoi.toString());
+                thucTapSinhCount++;
+            } else if (conNguoi instanceof LaoDongPhoThong) {
+                System.out.println("Thong tin nhan su Lao Dong Pho Thong: " + laoDongPhoThongCount);
+                System.out.println(conNguoi.toString());
+                laoDongPhoThongCount++;
+            } else if (conNguoi instanceof NhanVienPartTime) {
+                System.out.println("Thong tin nhan su Nhan Vien Part Time thu: " + nhanVienPartTimeCount);
+                System.out.println(conNguoi.toString());
+                nhanVienCount++;
+            } else if (conNguoi instanceof CanBoQuanLy) {
+                System.out.println("Thong tin nhan su Can Bo Quan Ly: "+ canBoQuanLiCount);
+                System.out.println(conNguoi.toString());
+                canBoQuanLiCount++;
+            }
+        }
+    }
+    if (!kt) {
+		System.out.println("Khong ton tai NHAN SU co ma " + maNhanVien);
+	}
+}
+
+}
